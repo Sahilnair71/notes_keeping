@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  </head>
+  <section class="bgimg" >
+<body class=" hero is-fullheight  tex">
+ 
+    
+     <div>
+                <h1 class="main">ADD NOTES</h1>
+                <label class="label texa">ENTER NOTES HERE</label>
+                <input class="input is-success " type="text" [(ngModel)]="value">
+            
+                 <p>{{value}}</p>
+                 
+                 <button (click)=" buttonclick() " class="button is-info ">ADD</button>
+                </div>
+       
+            <div class="column is-half">
+              <div class="card cd">
+                  <div class="card-image">
+                      <figure class="image ">
+                        <img src='/assets/cardimg.jpg'alt="Placeholder image">
+                      </figure>
+                    </div>
+                 
+                
+                
+                 <div class="card-content ">
+                
+                
+                <h1 *ngFor="let item of data" class="btex">{{item}}</h1>
+                </div>
+            
+              </div>
+
+                
+                
+            </div>
+            
+    
+    
+</body>
+</section>
+</html>

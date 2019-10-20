@@ -1,0 +1,43 @@
+.tex{
+    color:white;
+} 
+
+.texa{
+    color: white;
+    position: relative;
+    left: 30px;
+}
+.bgimg{
+    background-image: url('/assets/homeage.jpg');
+    background-position: center center;
+    background-repeat:  no-repeat;
+    background-attachment: fixed;
+    background-size:  cover;
+}
+.main{
+    font-size: 75px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+   }
+
+   .content {
+    max-width: 500px;
+    
+  }
+
+.inpumgn {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    
+}
+input{  margin-top: 50px;
+    margin-bottom: 50px;
+    
+    }
+
+.btex{
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    font-size: 30px;
+}
+
