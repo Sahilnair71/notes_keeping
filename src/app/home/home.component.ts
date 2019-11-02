@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient, HttpParams } from '@angular/common/http';
+
+const BASE_URL = "https://notes-api-sanketnaik99.herokuapp.com/api/v1";
 
 @Component({
   selector: 'app-home',
@@ -6,20 +9,36 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  value:string="";
-  data:string[]=[];
+  value: string = "";
+  data: any[] = [];
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    let data: string = localStorage.getItem("data");
-    console.log(data);
-    
-    this.data= data.split(',')
+    this.getData();
+  }
+
+  getData(){
+    this.http.get(`${BASE_URL}/get-notes`).subscribe(res => {
+      this.data = res['data'];
+    })
+  }
+
+  addData(data: string){
+    const params = new HttpParams({
+      fromObject: {
+        data: data
+      }
+    });
+    this.http.post(`${BASE_URL}/add-note`, params).subscribe(res => {
+      console.log(res);
+      if(res['result'] == "SUCCESS"){
+        this.getData();
+      }
+    })
   }
   buttonclick(){
-    this.data.push(this.value);
-    localStorage.setItem("data", this.data.toString());
+    this.addData(this.value);
     this.value="";
 
   }
